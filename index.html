@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDZ Neiro Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url(GDZ.jpg) no-repeat center center/cover;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .support-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 14px;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: 2;
+            transition: background-color 0.3s;
+        }
+
+        .support-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .language-switcher {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 2;
+        }
+
+        .language-button {
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .language-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            left: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .language-menu button {
+            display: block;
+            width: 100%;
+            padding: 5px 10px;
+            border: none;
+            background: none;
+            text-align: left;
+            font-size: 12px;
+            cursor: pointer;
+            color: #1e3c72;
+        }
+
+        .language-menu button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0078d7;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #005a9e;
+        }
+
+        .info-box {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .info-box ul {
+            margin: 0;
+            padding: 0 0 0 20px;
+            list-style: disc;
+        }
+
+        .info-box h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        const translations = {
+            ru: {
+                title: "Уникальная нейросеть для решения задач",
+                button: "Перейти в бота",
+                infoTitle: "Что я умею:",
+                infoList: [
+                    "Решать школьные задачи по всем предметам",
+                    "Распознавать текст с фото и помогать с заданиями",
+                ]
+            },
+            en: {
+                title: "A unique neural network for solving tasks",
+                button: "Go to bot",
+                infoTitle: "What I can do:",
+                infoList: [
+                    "Solve school problems in all subjects",
+                    "Recognize text from photos and help with tasks",
+                ]
+            },
+            de: {
+                title: "Einzigartiges neuronales Netzwerk zur Lösung von Aufgaben",
+                button: "Zum Bot wechseln",
+                infoTitle: "Was ich kann:",
+                infoList: [
+                    "Schulaufgaben in allen Fächern lösen",
+                    "Text von Fotos erkennen und bei Aufgaben helfen",
+                ]
+            },
+            fr: {
+                title: "Réseau neuronal unique pour résoudre des tâches",
+                button: "Aller au bot",
+                infoTitle: "Ce que je peux faire :",
+                infoList: [
+                    "Résoudre des tâches scolaires dans toutes les matières",
+                    "Reconnaître le texte des photos et aider avec les tâches",
+                ]
+            }
+        };
+
+        function setLanguage(lang) {
+            const content = translations[lang];
+            document.getElementById("main-title").textContent = content.title;
+            document.getElementById("bot-button").textContent = content.button;
+            document.getElementById("info-title").textContent = content.infoTitle;
+            const infoList = document.getElementById("info-list");
+            infoList.innerHTML = content.infoList.map(item => `<li>${item}</li>`).join('');
+            document.querySelector(".language-menu").style.display = "none";
+        }
+
+        function toggleLanguageMenu() {
+            const menu = document.querySelector('.language-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setLanguage("ru"); // Установить русский язык по умолчанию
+        });
+    </script>
+</head>
+<body>
+    <a href="https://t.me/yarstarr" class="support-button">Поддержать автора</a>
+
+    <div class="info-box">
+        <h2 id="info-title">Что я умею:</h2>
+        <ul id="info-list">
+            <li>Решать школьные задачи по всем предметам</li>
+            <li>Распознавать текст с фото и помогать с заданиями</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <img src="Frame 2452.png" alt="GDZ Neiro Logo" class="logo">
+        <h1 id="main-title">Уникальная нейросеть для решения задач</h1>
+        <a href="https://t.me/gdz_neiro_bot?start=514899749" class="button" id="bot-button">Перейти в бота</a>
+    </div>
+
+    <div class="language-switcher">
+        <button class="language-button" onclick="toggleLanguageMenu()">🌐 Язык</button>
+        <div class="language-menu">
+            <button onclick="setLanguage('ru')">Русский</button>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('fr')">Français</button>
+        </div>
+    </div>
+</body>
+</html>
+
