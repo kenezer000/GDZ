@@ -206,7 +206,7 @@
     </script>
 </head>
 <body>
-    <a href="https://t.me/yarstarr" class="support-button">Поддержать автора</a>
+    <a href="https://t.me/yarstarr" class="support-button" onclick="ym(99665793, 'reachGoal', 'support-author');">Поддержать автора</a>
 
     <div class="info-box">
         <h2 id="info-title">Что я умею:</h2>
@@ -219,18 +219,34 @@
     <div class="container">
         <img src="Frame 2452.png" alt="GDZ Neiro Logo" class="logo">
         <h1 id="main-title">Уникальная нейросеть для решения задач</h1>
-        <a href="https://t.me/gdz_neiro_bot?start=514899749" class="button" id="bot-button">Перейти в бота</a>
+        <a href="https://t.me/gdz_neiro_bot?start=514899749" class="button" id="bot-button" onclick="ym(99665793, 'reachGoal', 'bot-link-click');">Перейти в бота</a>
     </div>
 
     <div class="language-switcher">
         <button class="language-button" onclick="toggleLanguageMenu()">🌐 Язык</button>
         <div class="language-menu">
-            <button onclick="setLanguage('ru')">Русский</button>
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('de')">Deutsch</button>
-            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('ru'); ym(99665793, 'reachGoal', 'language-russian');">Русский</button>
+            <button onclick="setLanguage('en'); ym(99665793, 'reachGoal', 'language-english');">English</button>
+            <button onclick="setLanguage('de'); ym(99665793, 'reachGoal', 'language-german');">Deutsch</button>
+            <button onclick="setLanguage('fr'); ym(99665793, 'reachGoal', 'language-french');">Français</button>
         </div>
     </div>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(99665793, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/99665793" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>
 
